@@ -75,7 +75,7 @@ export default {
             resolve(data);
           })
           .catch(response => {
-            console.log(response);
+            throw new Error(`[KT] ApiService ${response}`);
           });
       });
     }
