@@ -6,7 +6,7 @@ import JwtService from "@/core/services/jwt.service";
  */
 const ApiService = {
   init() {
-    axios.defaults.baseURL = "https://ynsitu-api.herokuapp.com/users";
+    axios.defaults.baseURL = "https://ynsitu-api.herokuapp.com";
   },
 
   /**
