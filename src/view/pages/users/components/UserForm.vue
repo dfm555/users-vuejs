@@ -1,56 +1,45 @@
 <template>
-  <v-card>
-    <v-card-title>
-      Add User
-    </v-card-title>
-    <v-container>
-      <v-row>
-        <v-col cols="12" md="6">
-          <v-form ref="form" v-model="valid" lazy-validation>
-            <v-text-field
-              v-model="name"
-              :rules="textFieldRules"
-              label="Name"
-              required
-            ></v-text-field>
-            <v-text-field
-              v-model="last_name"
-              :rules="textFieldRules"
-              label="Last Name"
-              required
-            ></v-text-field>
-            <v-text-field
-              v-model="email"
-              :rules="emailRules"
-              label="E-mail"
-              required
-            ></v-text-field>
+  <v-form ref="form" v-model="valid" lazy-validation>
+    <v-text-field
+      v-model="name"
+      :rules="textFieldRules"
+      label="Name"
+      required
+    ></v-text-field>
+    <v-text-field
+      v-model="last_name"
+      :rules="textFieldRules"
+      label="Last Name"
+      required
+    ></v-text-field>
+    <v-text-field
+      v-model="email"
+      :rules="emailRules"
+      label="E-mail"
+      required
+    ></v-text-field>
 
-            <v-autocomplete
-              v-model="country"
-              :items="items"
-              :rules="[v => !!v || 'Country is required']"
-              label="Country"
-              required
-            ></v-autocomplete>
-            <v-btn
-              :disabled="!valid"
-              color="success"
-              class="mr-4"
-              outlined
-              @click="validate"
-              :loading="isLoading"
-            >
-              Save
-            </v-btn>
-            <v-btn color="error" outlined class="mr-4" @click="reset">
-              Reset Form
-            </v-btn>
-          </v-form>
-        </v-col>
-      </v-row>
-    </v-container>
-  </v-card>
+    <v-autocomplete
+      v-model="country"
+      :items="items"
+      :rules="[v => !!v || 'Country is required']"
+      label="Country"
+      required
+    ></v-autocomplete>
+    <v-btn
+      :disabled="!valid"
+      color="success"
+      class="mr-4"
+      outlined
+      @click="validate"
+      :loading="isLoading"
+    >
+      Save
+    </v-btn>
+    <v-btn color="error" outlined class="mr-4" @click="reset">
+      Reset Form
+    </v-btn>
+  </v-form>
 </template>
 
 <script>

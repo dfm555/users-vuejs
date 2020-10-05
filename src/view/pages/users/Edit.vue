@@ -1,18 +1,29 @@
 <template>
-  <div>
-    <v-alert v-if="errors" type="error">
-      Something went wrong! {{ errors.message }}
-    </v-alert>
-    <v-alert v-if="success" type="success">
-      User was updated!
-    </v-alert>
-    <UserForm
-      :data-form="getUserData()"
-      :success="success"
-      :loading="loading"
-      :handleSubmit="editUser"
-    ></UserForm>
-  </div>
+  <v-card>
+    <v-card-title>
+      Edit User
+    </v-card-title>
+    <v-container>
+      <v-row>
+        <v-col cols="12" v-if="errors || success">
+          <v-alert v-if="errors" type="error">
+            Something went wrong! {{ errors.message }}
+          </v-alert>
+          <v-alert v-if="success" type="success">
+            User was updated!
+          </v-alert>
+        </v-col>
+        <v-col cols="12" md="6">
+          <UserForm
+            :data-form="getUserData()"
+            :success="success"
+            :loading="loading"
+            :handleSubmit="editUser"
+          ></UserForm>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-card>
 </template>
 <script>
 import { mapGetters } from "vuex";
